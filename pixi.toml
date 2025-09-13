@@ -4,13 +4,19 @@ version = "0.1.0"
 description = "Add a short description here"
 authors = ["Miguel Villa Floran <miguel.villafloran@gmail.com>"]
 channels = ["robostack-humble", "conda-forge"]
-platforms = ["linux-64", "win-64"]
+platforms = ["linux-64"]
 
 [tasks]
-graph = "ros2 run rqt_graph rqt_graph"
+graph = "bash -c 'source install/setup.sh && ros2_graph /talker /listener -o ./src/chatter_diagram.md'"
 sim = "ros2 run turtlesim turtlesim_node"
 build = { cmd = "colcon build --symlink-install", inputs = ["src"] }
-hello = { cmd = "bash -c 'source install/setup.sh && ros2 run my_package my_node'", depends-on = [
+talker = { cmd = "bash -c 'source install/setup.sh && ros2 run my_package talker'", depends-on = [
+  "build",
+] }
+listener = { cmd = "bash -c 'source install/setup.sh && ros2 run my_package listener'", depends-on = [
+  "build",
+] }
+squared = { cmd = "bash -c 'source install/setup.sh && ros2 run my_package squared'", depends-on = [
   "build",
 ] }
 
@@ -20,4 +26,6 @@ colcon-common-extensions = ">=0.3.0,<0.4"
 setuptools = "<=58.2.0"
 ros-humble-desktop = ">=0.10.0,<0.11"
 ros-humble-turtlesim = ">=1.4.2,<2"
-ros-humble-rqt-graph = ">=1.3.1,<2"
+
+[pypi-dependencies]
+ros2-graph = "*"

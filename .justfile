@@ -31,7 +31,7 @@ build:
   @pixi run build
 
 # Run a package
-run *args='hello':
+run *args='talker':
   @echo "Running..."
   @pixi run {{args}}
 
