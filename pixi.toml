@@ -9,10 +9,11 @@ platforms = ["linux-64", "win-64"]
 [tasks]
 graph = "ros2 run rqt_graph rqt_graph"
 sim = "ros2 run turtlesim turtlesim_node"
-build = "colcon build --symlink-install"
-hello = "ros2 run my_package my_node"
+build = { cmd = "colcon build --symlink-install", inputs = ["src"] }
+hello = { cmd = "bash -c 'source install/setup.sh && ros2 run my_package my_node'", depends-on = ["build"] }
 
 [dependencies]
+pre-commit = ">=4.3.0,<5"
 colcon-common-extensions = ">=0.3.0,<0.4"
 setuptools = "<=58.2.0"
 ros-humble-desktop = ">=0.10.0,<0.11"

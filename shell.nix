@@ -12,5 +12,6 @@ pkgs.mkShell {
 
   # Shell hook to set up environment
   shellHook = ''
+    just install
   '';
 }
