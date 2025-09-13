@@ -24,7 +24,7 @@
 
 <!-- ABOUT THE PROJECT -->
 
-A template for developing production-ready ROS2 (Humble Hawksbill) applications.
+A template for developing production-ready ROS2 (Humble Hawksbill) applications with [Pixi](https://pixi.sh/) and [Nix](https://nixos.org/).
 
 ### Built With
 
@@ -32,6 +32,7 @@ A template for developing production-ready ROS2 (Humble Hawksbill) applications.
 [![C++][C++-shield]][C++-url]
 [![Python][Python-shield]][Python-url]
 [![Nix][Nix-shield]][Nix-url]
+[![Pixi][Pixi-shield]][Pixi-url]
 
 <!-- GETTING STARTED -->
 
@@ -64,7 +65,7 @@ To get a local copy of the project up and running on your machine, follow these 
 ## Project Structure
 
 ```sh
-graphics/
+pixi_ros2/
 ├── include/                       - project header files
 ├── src/                           - project source files
 │   └── main.c                     - Entry point, main function
@@ -98,3 +99,5 @@ The source code for [Kaweees/pixi_ros2](https://github.com/Kaweees/pixi_ros2) is
 [Python-url]: https://www.python.org/
 [Nix-shield]: https://img.shields.io/badge/NIX-%23008080.svg?style=for-the-badge&logo=NixOS&logoColor=5277C3&labelColor=222222&color=5277C3
 [Nix-url]: https://nixos.org/
+[Pixi-shield]: https://img.shields.io/badge/Pixi-%23008080.svg?style=for-the-badge&logo=Pixi&logoColor=F9C405&labelColor=222222&color=F9C405
+[Pixi-url]: https://pixi.sh/
