@@ -60,6 +60,12 @@ To get a local copy of the project up and running on your machine, follow these 
    nix-shell --max-jobs $(sysctl -n hw.ncpu) # macOS
    ```
 
+3. Run the project
+
+   ```sh
+   just run
+   ```
+
 <!-- PROJECT FILE STRUCTURE -->
 
 ## Project Structure

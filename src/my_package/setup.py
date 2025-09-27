@@ -1,3 +1,5 @@
+from glob import glob
+
 from setuptools import find_packages, setup
 
 package_name = "my_package"
@@ -9,19 +11,20 @@ setup(
     data_files=[
         ("share/ament_index/resource_index/packages", ["resource/" + package_name]),
         ("share/" + package_name, ["package.xml"]),
+        ("share/" + package_name + "/launch", glob("launch/*.py")),
     ],
     install_requires=["setuptools"],
     zip_safe=True,
     maintainer="kaweees",
     maintainer_email="miguel.villafloran@gmail.com",
     description="TODO: Package description",
-    license="TODO: License declaration",
+    license="GPLv3",
     tests_require=["pytest"],
     entry_points={
         "console_scripts": [
-            "talker = my_package.talker:main",
-            "listener = my_package.listener:main",
-            "squared = my_package.squared:main",
+            "talker = src.talker:main",
+            "listener = src.listener:main",
+            "squared = src.squared:main",
         ],
     },
 )
