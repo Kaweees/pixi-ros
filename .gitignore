@@ -25,6 +25,10 @@
 !tests/
 !tests/**/
 
+# ROS2 package resource folders
+!**/resource/
+!**/resource/**
+
 !*.md
 !*.mdc
 !*.svg
@@ -34,6 +38,7 @@
 !*.toml
 !*.yaml
 !*.yml
+!*.sh
 !*.ini
 !*.py
 !*.xml

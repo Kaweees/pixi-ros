@@ -45,12 +45,12 @@ check:
 # Remove build artifacts and non-essential files
 clean:
   @echo "Cleaning..."
-  @find . -type d -name ".pixi" -exec rm -r {} +
-  @find . -type d -name "__pycache__" -exec rm -r {} +
-  @find . -type d -name "*.ruff_cache" -exec rm -r {} +
-  @find . -type d -name "build" -exec rm -r {} +
-  @find . -type d -name "install" -exec rm -r {} +
-  @find . -type d -name "log" -exec rm -r {} +
+  @find . -type d -name ".pixi" -exec rm -rf {} +
+  @find . -type d -name "__pycache__" -exec rm -rf {} +
+  @find . -type d -name "*.ruff_cache" -exec rm -rf {} +
+  @find . -type d -name "build" -exec rm -rf {} +
+  @find . -type d -name "install" -exec rm -rf {} +
+  @find . -type d -name "log" -exec rm -rf {} +
 
 # Format the project
 format:
