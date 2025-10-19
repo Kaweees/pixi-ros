@@ -12,7 +12,7 @@ scripts = ["install/setup.sh"]
 [tasks]
 graph = "ros2_graph /talker /listener -o ./src/chatter_diagram.md"
 sim = "ros2 run turtlesim turtlesim_node"
-build = { cmd = "colcon build --symlink-install", inputs = ["src"] }
+build = { cmd = "colcon build --symlink-install --cmake-args", inputs = ["src"] }
 talker = { cmd = "ros2 run my_package talker", depends-on = ["build"] }
 listener = { cmd = "ros2 run my_package listener", depends-on = ["build"] }
 squared = { cmd = "ros2 run my_package squared", depends-on = ["build"] }
