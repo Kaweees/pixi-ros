@@ -3,22 +3,21 @@ name = "pixi_ros2"
 version = "0.1.0"
 description = "Add a short description here"
 authors = ["Miguel Villa Floran <miguel.villafloran@gmail.com>"]
-channels = ["robostack-humble", "conda-forge"]
-platforms = ["linux-64", "linux-aarch64"]
+channels = ["robostack-staging", "robostack-humble", "conda-forge"]
+platforms = ["linux-64", "linux-aarch64", "osx-64", "osx-arm64"]
+
+[activation]
+scripts = ["install/setup.sh"]
 
 [tasks]
-graph = "bash -c 'source install/setup.sh && ros2_graph /talker /listener -o ./src/chatter_diagram.md'"
+graph = "ros2_graph /talker /listener -o ./src/chatter_diagram.md"
 sim = "ros2 run turtlesim turtlesim_node"
 build = { cmd = "colcon build --symlink-install", inputs = ["src"] }
-talker = { cmd = "bash -c 'source install/setup.sh && ros2 run my_package talker'", depends-on = [
-  "build",
-] }
-listener = { cmd = "bash -c 'source install/setup.sh && ros2 run my_package listener'", depends-on = [
-  "build",
-] }
-squared = { cmd = "bash -c 'source install/setup.sh && ros2 run my_package squared'", depends-on = [
-  "build",
-] }
+talker = { cmd = "ros2 run my_package talker", depends-on = ["build"] }
+listener = { cmd = "ros2 run my_package listener", depends-on = ["build"] }
+squared = { cmd = "ros2 run my_package squared", depends-on = ["build"] }
+foxglove = { cmd = "ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8765", depends-on = ["build"] }
+bag = { cmd = "ros2 bag record -a", depends-on = ["build"] }
 
 [dependencies]
 pre-commit = ">=4.3.0,<5"
