@@ -60,7 +60,14 @@ To get a local copy of the project up and running on your machine, follow these 
    nix-shell --max-jobs $(sysctl -n hw.ncpu) # macOS
    ```
 
-3. Run the project
+3. Create a new ROS2 node
+
+   ```sh
+   pixi run ros2 pkg create --build-type ament_cmake --destination-directory src --node-name my_cpp_node my_cpp_package # C++
+   pixi run ros2 pkg create --build-type ament_python --destination-directory src --node-name my_python_node my_python_package # Python
+   ```
+
+4. Run the project
 
    ```sh
    just run

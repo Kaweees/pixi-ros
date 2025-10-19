@@ -12,6 +12,7 @@ pkgs.mkShell {
 
   # Shell hook to set up environment
   shellHook = ''
+    pixi config set --local run-post-link-scripts insecure
     just install
   '';
 }
