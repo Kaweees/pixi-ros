@@ -3,6 +3,7 @@
 # run `just` from this directory to see available commands
 
 alias i := install
+alias u := update
 alias p := pre_commit
 alias b := build
 alias r := run
@@ -18,7 +19,12 @@ default:
 install:
   @echo "Installing..."
   @pixi shell
-  @pixi run pre-commit install
+  @pixi run pre-commit install --install-hooks
+
+update:
+  @echo "Updating..."
+  @pixi update
+  @pixi run pre-commit autoupdate
 
 # Run pre-commit
 pre_commit:
